@@ -7,7 +7,6 @@ const App = () => {
 
   return (
     <main className={`min-h-screen flex items-center justify-center ${light ? "bg-neutral-200" : "bg-black/95"} animation`}>
-      {/* <MainPage /> */}
       <AllRoutes />
     </main>
   )
