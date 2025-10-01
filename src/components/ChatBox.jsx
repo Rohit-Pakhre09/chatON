@@ -36,7 +36,7 @@ const ChatBox = () => {
                         selectedUser={selectedUser}
                     />
                 </div>
-                {/* ChatSection in middle, only if user selected */}
+                {/* ChatSection */}
                 {selectedUser && (
                     <div className="flex-1 overflow-y-auto">
                         <ChatSection
@@ -45,7 +45,7 @@ const ChatBox = () => {
                         />
                     </div>
                 )}
-                {/* Profile section always at bottom */}
+                {/* Profile section */}
                 <div className="flex items-center gap-2 px-4 py-3 border-t border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-200">
                     <img
                         src={currentUser?.photoURL || require('../assets/avatar.png')}
