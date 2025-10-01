@@ -8,7 +8,7 @@ export const sendMessage = createAsyncThunk(
     async ({ chatId, text, otherUserId }, { rejectWithValue }) => {
         try {
             const msgRef = doc(collection(db, "chats", chatId, "messages"));
-            const messageId = msgRef.id; // Use Firestore-generated ID
+            const messageId = msgRef.id; 
             const message = {
                 text,
                 senderId: auth.currentUser.uid,
@@ -65,14 +65,13 @@ export const editMessage = createAsyncThunk(
 const chatSlice = createSlice({
     name: "chat",
     initialState: {
-        messages: {}, // { chatId: [messages] }
+        messages: {},
         status: "idle",
         error: null,
     },
     reducers: {
         setMessages: (state, action) => {
             const { chatId, messages } = action.payload;
-            // Serialize createdAt if it's a Firestore Timestamp
             state.messages[chatId] = messages.map(msg => ({
                 ...msg,
                 createdAt: msg.createdAt?.toDate ? msg.createdAt.toDate().toISOString() : msg.createdAt || null,
@@ -86,7 +85,6 @@ const chatSlice = createSlice({
             })
             .addCase(sendMessage.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                // Do not add message here; onSnapshot will handle it
             })
             .addCase(sendMessage.rejected, (state, action) => {
                 state.status = "failed";
@@ -117,7 +115,6 @@ const chatSlice = createSlice({
 
 export const { setMessages } = chatSlice.actions;
 
-// Memoized selector for messages per chat
 export const selectMessagesForChat = createSelector(
     [(state) => state.chat.messages, (_, chatId) => chatId],
     (messages, chatId) => messages[chatId] || []

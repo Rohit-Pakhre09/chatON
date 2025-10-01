@@ -50,7 +50,6 @@ export const fetchUsers = createAsyncThunk("user/fetchUsers", async (_, { reject
 // Logout user
 export const logoutUser = createAsyncThunk("user/logoutUser", async (_, { rejectWithValue }) => {
     try {
-        // Optionally update user status before signing out
         if (auth.currentUser) {
             const userStatusDoc = doc(db, "userStatus", auth.currentUser.uid);
             await updateDoc(userStatusDoc, {

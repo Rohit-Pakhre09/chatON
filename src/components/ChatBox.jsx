@@ -28,7 +28,7 @@ const ChatBox = () => {
 
             {/* Mobile layout: UserList, ChatSection, Profile section */}
             <div className="flex flex-col md:hidden w-full h-full">
-                {/* UserList always at top */}
+                {/* UserList */}
                 <div className="flex-1 overflow-y-auto">
                     <UserList
                         currentUser={currentUser}
