@@ -1,18 +1,63 @@
-import { useContext } from "react";
-import { ThemeContext } from "../contexts/AppContexts";
+import { useState } from "react";
+import { auth } from "../firebase";
+import UserList from "./UserList";
+import ChatSection from "./ChatSection";
 
 const ChatBox = () => {
-    // Theme
-    const { light } = useContext(ThemeContext);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const currentUser = auth.currentUser;
 
     return (
-        <section
-            className={`container mx-auto w-[90%] h-[75vh] sm:w-[90%] md:w-[80%] lg:w-[70%] p-4 sm:p-6 md:p-8 rounded-xl shadow-md transition-all ${light ? "bg-neutral-50" : "bg-gray-800"}`}
-        >
-            <p className={`${light ? "text-black" : "text-white"} text-lg font-semibold`}>
-                ChatON
-            </p>
-        </section>
+        <div className="flex h-screen w-full transition-all duration-500 ease-in-out bg-white dark:bg-neutral-200">
+            {/* Desktop layout */}
+            <div className="hidden md:flex w-full">
+                <div className="w-1/3 border-r h-full">
+                    <UserList
+                        currentUser={currentUser}
+                        setSelectedUser={setSelectedUser}
+                        selectedUser={selectedUser}
+                    />
+                </div>
+                <div className="flex-1 h-full">
+                    <ChatSection
+                        otherUser={selectedUser}
+                        onBack={() => setSelectedUser(null)}
+                    />
+                </div>
+            </div>
+
+            {/* Mobile layout: UserList, ChatSection, Profile section */}
+            <div className="flex flex-col md:hidden w-full h-full">
+                {/* UserList always at top */}
+                <div className="flex-1 overflow-y-auto">
+                    <UserList
+                        currentUser={currentUser}
+                        setSelectedUser={setSelectedUser}
+                        selectedUser={selectedUser}
+                    />
+                </div>
+                {/* ChatSection in middle, only if user selected */}
+                {selectedUser && (
+                    <div className="flex-1 overflow-y-auto">
+                        <ChatSection
+                            otherUser={selectedUser}
+                            onBack={() => setSelectedUser(null)}
+                        />
+                    </div>
+                )}
+                {/* Profile section always at bottom */}
+                <div className="flex items-center gap-2 px-4 py-3 border-t border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-200">
+                    <img
+                        src={currentUser?.photoURL || require('../assets/avatar.png')}
+                        className="w-8 h-8 rounded-full object-cover"
+                        alt={currentUser?.displayName || 'User'}
+                    />
+                    <h2 className="font-semibold text-sm truncate">
+                        {currentUser?.displayName || 'User'}
+                    </h2>
+                </div>
+            </div>
+        </div>
     );
 };
 
