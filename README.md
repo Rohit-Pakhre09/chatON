@@ -1,4 +1,4 @@
-# 💬 chatON - Real-Time Chat Application
+# 💬 chatON: Real-Time Chat Application
 
 > A modern and scalable **Real-Time Chat Application** built with React, Vite, Redux Toolkit, and Firebase. Designed for seamless one-on-one messaging, real-time updates, and a responsive user experience.
 
