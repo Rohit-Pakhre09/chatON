@@ -43,51 +43,30 @@ The application supports **full CRUD operations** for messages and user profiles
 ## 🚀 Features
 
 - **Real-Time Messaging**: Send, edit, and delete messages with instant updates via Firebase Firestore.
-
 - **User Authentication**: Secure sign-up, sign-in, and logout with Firebase Authentication.
-
 - **Profile Management**: Update user display names and profile photos, synced to Firestore.
-
 - **Searchable User List**: Find users by display name to initiate chats.
-
 - **One-on-One Chats**: Private chat rooms with automatic chat ID generation for secure messaging.
-
 - **Message Actions**: Edit or delete sent messages with visual indicators for edited messages.
-
 - **Online Status**: Real-time "last seen" and online/offline indicators using Firestore timestamps.
-
 - **Theme Toggle**: Switch between light and dark modes with smooth transitions.
-
 - **Emoji Support**: Integrated emoji picker for expressive messaging.
-
 - **Responsive Design**: Mobile-friendly UI optimized with Tailwind CSS.
-
 - **Global State Management**: Efficient state handling with Redux Toolkit for users and chats.
-
 - **Error Handling**: User-friendly error messages for authentication, messaging, and profile updates.
-
 - **Performance-Optimized**: Fast builds and development with Vite and pnpm.
-
 ---
 
 ## 🛠 Tech Stack
 
 - **Frontend**: React 18.2.0, Vite 5.2.0
-
 - **State Management**: Redux Toolkit 1.9.5
-
 - **Backend**: Firebase 9.23.0 (Authentication, Firestore)
-
 - **Package Manager**: pnpm 8.6.0
-
 - **Styling**: Tailwind CSS 3.3.2
-
 - **Icons**: Lucide React 0.252.0
-
 - **Routing**: React Router DOM 6.11.0
-
 - **Linting & Formatting**: ESLint, Prettier
-
 ---
 
 ## 📂 Project Structure
@@ -135,9 +114,7 @@ pnpm install
 ### 3\. Set Up Firebase
 
 1.  Create a Firebase project in the Firebase Console.
-
 2.  Enable **Authentication** (Email/Password provider) and **Firestore Database**.
-
 3.  Copy your Firebase configuration and update src/firebase.js:
 
     ```
@@ -199,21 +176,15 @@ pnpm build
 ### 🔑 Access the Application
 
 - Open http://localhost:5173 in your browser after running the development server.
-
 - **Sign Up** or **Sign In** using email and password.
-
 - Browse the user list, select a user, and start chatting in real time.
 
 ### 🛠️ User Features
 
 - **Sign Up/Sign In**: Create an account or log in with Firebase Authentication.
-
 - **Chat**: Send, edit, or delete messages in private one-on-one chat rooms.
-
 - **Profile**: Update your display name and profile photo.
-
 - **Search**: Find users by display name to initiate chats.
-
 - **Theme Toggle**: Switch between light and dark modes.
 
 ---
@@ -223,15 +194,12 @@ pnpm build
 ### 📝 Code Style
 
 - Use **ESLint** and **Prettier** for consistent code formatting.
-
 - Follow the provided ESLint configuration (eslint.config.js).
-
 - Organize components and logic by feature in src/modules and src/components.
 
 ### 🤝 Contributing
 
 1.  **Fork** the repository.
-
 2.  Create a new branch:
 
     ```
@@ -255,9 +223,7 @@ pnpm build
 ### 🛠️ Debugging Tips
 
 - **Firebase Errors**: Check the Firebase Console for authentication or Firestore issues.
-
 - **Redux State**: Use Redux DevTools to inspect state changes.
-
 - **Console Logs**: Enable logging in chatSlice.js and ChatSection.jsx to trace message or listener issues.
 
 ---
@@ -265,5 +231,4 @@ pnpm build
 ## 👥 Contributors
 
 We are grateful to the following contributors who have helped shape **chatON**:
-
 - **Rohit Pakhre** -- Lead Developer
